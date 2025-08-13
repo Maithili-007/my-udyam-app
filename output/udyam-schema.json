@@ -1,0 +1,33 @@
+{
+  "step1": {
+    "fields": [
+      {
+        "name": "ctl00$ContentPlaceHolder1$txtadharno",
+        "type": "text",
+        "id": "ctl00_ContentPlaceHolder1_txtadharno",
+        "label": "Aadhaar Number",
+        "required": true,
+        "maxLength": 12,
+        "pattern": "^[0-9]{12}$"
+      },
+      {
+        "name": "ctl00$ContentPlaceHolder1$txtownername",
+        "type": "text",
+        "id": "ctl00_ContentPlaceHolder1_txtownername",
+        "label": "Name of Entrepreneur",
+        "required": true,
+        "maxLength": 100
+      },
+      {
+        "name": "ctl00$ContentPlaceHolder1$chkDecarationA",
+        "type": "checkbox",
+        "id": "ctl00_ContentPlaceHolder1_chkDecarationA",
+        "label": "Consent",
+        "required": true
+      }
+    ]
+  },
+  "step2": {
+    "fields": []
+  }
+}
