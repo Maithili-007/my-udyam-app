@@ -8,45 +8,35 @@ on:
 
 jobs:
   backend-test:
-    name: Backend Tests
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout backend
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
-          path: backend
+          path: backend        # Checkout repo into backend folder
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm install
+      - run: npm install
         working-directory: backend
 
-      - name: Run backend tests
-        run: npm test
+      - run: npm test
         working-directory: backend
 
   frontend-test:
-    name: Frontend Tests
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout frontend
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
-          path: frontend
+          path: frontend       # Checkout repo into frontend folder
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm install
+      - run: npm install
         working-directory: frontend
 
-      - name: Run frontend tests
-        run: npm test
+      - run: npm test
         working-directory: frontend
