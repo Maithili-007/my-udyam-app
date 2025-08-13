@@ -1,6 +1,5 @@
 name: CI Pipeline
 
-# Trigger on pushes and pull requests to main branch
 on:
   push:
     branches: [ main ]
@@ -8,16 +7,14 @@ on:
     branches: [ main ]
 
 jobs:
-  # Backend tests job
   backend-test:
     name: Backend Tests
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: backend   # change to your backend folder
     steps:
-      - name: Checkout code
+      - name: Checkout backend
         uses: actions/checkout@v3
+        with:
+          path: backend
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -26,20 +23,20 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: backend
 
       - name: Run backend tests
         run: npm test
+        working-directory: backend
 
-  # Frontend tests job
   frontend-test:
     name: Frontend Tests
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: frontend  # change to your frontend folder
     steps:
-      - name: Checkout code
+      - name: Checkout frontend
         uses: actions/checkout@v3
+        with:
+          path: frontend
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -48,6 +45,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: frontend
 
       - name: Run frontend tests
         run: npm test
+        working-directory: frontend
